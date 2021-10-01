@@ -1,5 +1,5 @@
 # dotfiles
-Personel dot files unver version control
+Personel dot files with version control
 
 
 Dors - Dotfiles
