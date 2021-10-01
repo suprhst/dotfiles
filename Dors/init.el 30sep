@@ -1,0 +1,321 @@
+;;; package --- Summary
+;;; Commentary:
+;; This is my Emacs setup done which is intended for my own personel use  :- Varun
+
+;; Battery and Time
+
+;;; Code:
+(display-time-mode 1)
+(display-battery-mode 1)
+
+;; Set yes no to y n
+
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Remove startup message
+
+(setq inhibit-startup-message t)
+
+;; Remove scroll-tool-menu bar
+
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+
+;; Package Manager Setup
+
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/"))
+
+(package-initialize)
+
+;; Packages
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(use-package try
+  :ensure t)
+
+;; Package Whichkey
+
+(use-package which-key
+  :ensure t
+  :config (which-key-mode))
+
+;; Orgmode bullets
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda() (org-bullets-mode 1))))
+
+;; ido for suggestions
+;;(setq ido-everywhere t)
+;;(setq ido-enable-flex-matching t)
+;;(ido-mode t)
+
+
+;; modeline
+
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode))
+(setq doom-modeline-project-detection 'auto)
+(setq doom-modeline-buffer-file-name-style 'auto)
+(setq doom-modeline-icon (display-graphic-p))
+(setq doom-modeline-major-mode-icon t)
+(setq doom-modeline-major-mode-color-icon t)
+(setq doom-modeline-buffer-state-icon t)
+(setq doom-modeline-buffer-modification-icon t)
+(setq doom-modeline-workspace-name t)
+(setq doom-modeline-persp-name t)
+(setq doom-modeline-persp-icon t)
+
+;; Icons
+
+(use-package all-the-icons
+  :ensure t)
+
+;; Autocompletion
+
+;;(use-package auto-complete
+;;  :ensure t
+;;  :init
+;;  (progn
+;;    (ac-config-default)
+;;    (global-auto-complete-mode t)))
+
+
+;; Company Mode
+
+(use-package company
+  :ensure t
+  :init
+  (add-hook 'after-init-hook 'global-company-mode))
+
+;; Dashboard
+
+(use-package dashboard
+  :ensure t
+  :init
+  (progn
+    (setq dashboard-center-content t)
+    (setq dashboard-startup-banner "~/Downloads/l.png")
+    (setq dashboard-set-file-icons t)
+    (setq dashboard-banner-logo-title " Remember VIM Is Always Better  ")
+    (setq dashboard-set-heading-icon t))
+  :config
+  (dashboard-setup-startup-hook))
+	  
+
+;; Package Auto-Updater
+
+(use-package auto-package-update
+  :ensure t
+  :config
+  (auto-package-update-maybe))
+
+
+;; Expand Region(Selection)
+
+(use-package expand-region
+  :ensure t
+  :bind
+  ("C-=" . er/expand-region)
+  ("C--" . er/contract-region))
+
+
+;; Treemacs (File Browser)
+
+(use-package treemacs
+  :ensure t
+  :bind
+  (:map global-map
+       ([f8] . treemacs))
+  :config
+  (setq treemacs-is-never-other-window t))
+
+
+;; Projectile
+
+(use-package projectile
+  :ensure t
+  :config
+  (define-key projectile-mode-map (kbd "C-x p") 'Projectile-command-map)
+  (projectile-mode +1))
+
+
+
+;; Treemacs Projectile
+
+
+(use-package treemacs-projectile
+  :ensure t)
+
+
+
+;; Ace Window
+
+(use-package ace-window
+:ensure t
+:init
+(progn
+(global-set-key [remap other-window] 'ace-window)
+(custom-set-faces
+'(aw-leading-char-face
+((t (:inherit ace-jump-face-foreground :height 3.0)))))
+))
+
+;; Winner mode
+
+(winner-mode 1)
+
+;; Fly check
+
+(use-package flycheck
+:ensure t
+:init
+(global-flycheck-mode t))
+
+
+;; Avy Search
+
+(use-package avy
+:ensure t
+:bind ("M-s" . avy-goto-char))
+
+
+;; Swiper Search
+
+(use-package counsel
+:ensure t
+)
+
+(use-package swiper
+:ensure t
+:config
+(progn
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(global-set-key "\C-s" 'swiper)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
+(global-set-key (kbd "<f6>") 'ivy-resume)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "<f1> f") 'counsel-describe-function)
+(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+(global-set-key (kbd "<f1> l") 'counsel-load-library)
+(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+(global-set-key (kbd "C-c g") 'counsel-git)
+(global-set-key (kbd "C-c j") 'counsel-git-grep)
+(global-set-key (kbd "C-c k") 'counsel-ag)
+(global-set-key (kbd "C-x l") 'counsel-locate)
+(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+(define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+))
+
+
+
+
+
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
+ '(compilation-message-face 'default)
+ '(cua-global-mark-cursor-color "#2aa198")
+ '(cua-normal-cursor-color "#657b83")
+ '(cua-overwrite-cursor-color "#b58900")
+ '(cua-read-only-cursor-color "#859900")
+ '(custom-enabled-themes nil)
+ '(custom-safe-themes
+   '("e8df30cd7fb42e56a4efc585540a2e63b0c6eeb9f4dc053373e05d774332fc13" "9b54ba84f245a59af31f90bc78ed1240fca2f5a93f667ed54bbf6c6d71f664ac" "a0be7a38e2de974d1598cf247f607d5c1841dbcef1ccd97cded8bea95a7c7639" "333958c446e920f5c350c4b4016908c130c3b46d590af91e1e7e2a0611f1e8c5" "8146edab0de2007a99a2361041015331af706e7907de9d6a330a3493a541e5a6" "e2c926ced58e48afc87f4415af9b7f7b58e62ec792659fcb626e8cba674d2065" "5f19cb23200e0ac301d42b880641128833067d341d22344806cdad48e6ec62f6" "835868dcd17131ba8b9619d14c67c127aa18b90a82438c8613586331129dda63" "1d5e33500bc9548f800f9e248b57d1b2a9ecde79cb40c0b1398dec51ee820daf" "028c226411a386abc7f7a0fba1a2ebfae5fe69e2a816f54898df41a6a3412bb5" "da186cce19b5aed3f6a2316845583dbee76aea9255ea0da857d1c058ff003546" "51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773" "830877f4aab227556548dc0a28bf395d0abe0e3a0ab95455731c9ea5ab5fe4e1" "833ddce3314a4e28411edf3c6efde468f6f2616fc31e17a62587d6a9255f4633" "f5b6be56c9de9fd8bdd42e0c05fecb002dedb8f48a5f00e769370e4517dde0e8" "4c56af497ddf0e30f65a7232a8ee21b3d62a8c332c6b268c81e9ea99b11da0d3" "fee7287586b17efbfda432f05539b58e86e059e78006ce9237b8732fde991b4c" "e5dc5b39fecbeeb027c13e8bfbf57a865be6e0ed703ac1ffa96476b62d1fae84" "171d1ae90e46978eb9c342be6658d937a83aaa45997b1d7af7657546cae5985b" default))
+ '(exwm-floating-border-color "#1d2127")
+ '(fci-rule-color "color-237")
+ '(highlight-changes-colors '("#d33682" "#6c71c4"))
+ '(highlight-symbol-colors
+   '("#ffffff9fcfae" "#dba8fffffff9" "#ffffcffdbf71" "#dcdcc53effff" "#ffffff9fcfae" "#ffffcffdbf71" "#dba8fffffff9"))
+ '(highlight-symbol-foreground-color "#586e75")
+ '(highlight-tail-colors
+   '(("#eee8d5" . 0)
+     ("#b3c34d" . 20)
+     ("#6ccec0" . 30)
+     ("#74adf5" . 50)
+     ("#e1af4b" . 60)
+     ("#fb7640" . 70)
+     ("#ff699e" . 85)
+     ("#eee8d5" . 100)))
+ '(hl-bg-colors
+   '("#e1af4b" "#fb7640" "#ff6849" "#ff699e" "#8d85e7" "#74adf5" "#6ccec0" "#b3c34d"))
+ '(hl-fg-colors
+   '("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3"))
+ '(hl-paren-colors '("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900"))
+ '(jdee-db-active-breakpoint-face-colors (cons "#1d2127" "#87ceeb"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#1d2127" "#87875f"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#1d2127" "#686858"))
+ '(lsp-ui-doc-border "#586e75")
+ '(nrepl-message-colors
+   '("#dc322f" "#cb4b16" "#b58900" "#5b7300" "#b3c34d" "#0061a8" "#2aa198" "#d33682" "#6c71c4"))
+ '(objed-cursor-color "#aa4450")
+ '(package-selected-packages
+   '(org-superstar org-multiple-keymap company Company centaur-tabs helm-projectile helm treemacs-projectile projectile treemacs expand-region auto-package-update swiper dashboard auto-complete xresources-theme atom-one-dark-theme doom-modeline which-key use-package try org-bullets))
+ '(pdf-view-midnight-colors (cons "#c2c2b0" "#171717"))
+ '(pos-tip-background-color "#eee8d5")
+ '(pos-tip-foreground-color "#586e75")
+ '(rustic-ansi-faces
+   ["#171717" "#aa4450" "#87875f" "#cc8800" "#87AFD7" "#8787AF" "#87ceeb" "#c2c2b0"])
+ '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
+ '(term-default-bg-color "#fdf6e3")
+ '(term-default-fg-color "#657b83")
+ '(tetris-x-colors
+   [[229 192 123]
+    [97 175 239]
+    [209 154 102]
+    [224 108 117]
+    [152 195 121]
+    [198 120 221]
+    [86 182 194]])
+ '(vc-annotate-background nil)
+ '(vc-annotate-background-mode nil)
+ '(vc-annotate-color-map
+   '((20 . "#dc322f")
+     (40 . "#ffffa21b0000")
+     (60 . "#ffffd2170000")
+     (80 . "#b58900")
+     (100 . "#ffffffff0001")
+     (120 . "#ffffffff0001")
+     (140 . "#ffffffff0001")
+     (160 . "#ffffffff0001")
+     (180 . "#859900")
+     (200 . "#dc61ffb87bff")
+     (220 . "#c516ffa89f16")
+     (240 . "#a726ffabc017")
+     (260 . "#7bfcffc6e036")
+     (280 . "#2aa198")
+     (300 . "#0000ffffffff")
+     (320 . "#0000ffffffff")
+     (340 . "#0000ffffffff")
+     (360 . "#268bd2")))
+ '(vc-annotate-very-old-color nil)
+ '(weechat-color-list
+   '(unspecified "#fdf6e3" "#eee8d5" "#a7020a" "#dc322f" "#5b7300" "#859900" "#866300" "#b58900" "#0061a8" "#268bd2" "#a00559" "#d33682" "#007d76" "#2aa198" "#657b83" "#839496"))
+ '(xterm-color-names
+   ["#eee8d5" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#073642"])
+ '(xterm-color-names-bright
+   ["#fdf6e3" "#cb4b16" "#93a1a1" "#839496" "#657b83" "#6c71c4" "#586e75" "#002b36"]))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(aw-leading-char-face ((t (:inherit ace-jump-face-foreground :height 3.0)))))
