@@ -1,0 +1,85 @@
+01:43:06 AM.250: CPU Name: Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz
+01:43:06 AM.250: CPU Speed: 1800.000MHz
+01:43:06 AM.251: Physical Cores: 4, Logical Cores: 8
+01:43:06 AM.251: Physical Memory: 11749MB Total, 9651MB Free
+01:43:06 AM.251: Kernel Version: Linux 5.14.11-arch1-1
+01:43:06 AM.251: Distribution: "Arch Linux" Unknown
+01:43:06 AM.251: Session Type: x11
+01:43:06 AM.251: Window System: X11.0, Vendor: The X.Org Foundation, Version: 1.20.13
+01:43:06 AM.252: Portable mode: false
+01:43:06 AM.321: OBS 27.0.1-3 (linux)
+01:43:06 AM.321: ---------------------------------
+01:43:06 AM.321: ---------------------------------
+01:43:06 AM.321: audio settings reset:
+01:43:06 AM.321: 	samples per sec: 48000
+01:43:06 AM.321: 	speakers:        2
+01:43:06 AM.330: ---------------------------------
+01:43:06 AM.330: Initializing OpenGL...
+01:43:06 AM.417: Loading up OpenGL on adapter Intel Mesa Intel(R) UHD Graphics 620 (KBL GT2)
+01:43:06 AM.417: OpenGL loaded successfully, version 4.6 (Core Profile) Mesa 21.2.3, shading language 4.60
+01:43:06 AM.441: ---------------------------------
+01:43:06 AM.441: video settings reset:
+01:43:06 AM.441: 	base resolution:   1920x1080
+01:43:06 AM.441: 	output resolution: 1920x1080
+01:43:06 AM.441: 	downscale filter:  Bicubic
+01:43:06 AM.441: 	fps:               30/1
+01:43:06 AM.441: 	format:            NV12
+01:43:06 AM.441: 	YUV mode:          709/Partial
+01:43:06 AM.441: NV12 texture support not available
+01:43:06 AM.446: Audio monitoring device:
+01:43:06 AM.446: 	name: Default
+01:43:06 AM.446: 	id: default
+01:43:06 AM.446: ---------------------------------
+01:43:06 AM.448: Failed to load 'en-US' text for module: 'decklink-captions.so'
+01:43:06 AM.452: Failed to load 'en-US' text for module: 'decklink-ouput-ui.so'
+01:43:06 AM.458: os_dlopen(/usr//lib/obs-plugins/frontend-tools.so->/usr//lib/obs-plugins/frontend-tools.so): libluajit-5.1.so.2: cannot open shared object file: No such file or directory
+01:43:06 AM.458: 
+01:43:06 AM.458: Module '/usr//lib/obs-plugins/frontend-tools.so' not loaded
+01:43:06 AM.476: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+01:43:06 AM.476: No blackmagic support
+01:43:06 AM.504: v4l2loopback not installed, virtual camera disabled
+01:43:06 AM.616: os_dlopen(libnvidia-encode.so.1->libnvidia-encode.so.1): libnvidia-encode.so.1: cannot open shared object file: No such file or directory
+01:43:06 AM.616: 
+01:43:06 AM.616: FFMPEG VAAPI supported
+01:43:06 AM.685: os_dlopen(/usr//lib/obs-plugins/sndio.so->/usr//lib/obs-plugins/sndio.so): libsndio.so.7.1: cannot open shared object file: No such file or directory
+01:43:06 AM.685: 
+01:43:06 AM.686: Module '/usr//lib/obs-plugins/sndio.so' not loaded
+01:43:06 AM.695: ---------------------------------
+01:43:06 AM.695:   Loaded Modules:
+01:43:06 AM.695:     text-freetype2.so
+01:43:06 AM.695:     rtmp-services.so
+01:43:06 AM.695:     obs-x264.so
+01:43:06 AM.695:     obs-transitions.so
+01:43:06 AM.695:     obs-outputs.so
+01:43:06 AM.695:     obs-libfdk.so
+01:43:06 AM.695:     obs-filters.so
+01:43:06 AM.695:     obs-ffmpeg.so
+01:43:06 AM.695:     linux-v4l2.so
+01:43:06 AM.695:     linux-pulseaudio.so
+01:43:06 AM.695:     linux-jack.so
+01:43:06 AM.695:     linux-decklink.so
+01:43:06 AM.695:     linux-capture.so
+01:43:06 AM.695:     linux-alsa.so
+01:43:06 AM.695:     image-source.so
+01:43:06 AM.695:     decklink-ouput-ui.so
+01:43:06 AM.695:     decklink-captions.so
+01:43:06 AM.695: ---------------------------------
+01:43:06 AM.696: ==== Startup complete ===============================================
+01:43:06 AM.707: All scene data cleared
+01:43:06 AM.707: ------------------------------------------------
+01:43:06 AM.716: xshm-input: Geometry 1920x1080 @ 0,0
+01:43:06 AM.738: alsa-input: PCM 'default' rate set to 48000
+01:43:06 AM.738: alsa-input: PCM 'default' channels set to 2
+01:43:06 AM.740: Switched to scene 'Scene'
+01:43:06 AM.740: ------------------------------------------------
+01:43:06 AM.740: Loaded scenes:
+01:43:06 AM.740: - scene 'Scene':
+01:43:06 AM.740:     - source: 'Audio Capture Device (ALSA)' (alsa_input_capture)
+01:43:06 AM.740:         - filter: 'Compressor' (compressor_filter)
+01:43:06 AM.740:         - filter: 'Noise Suppression' (noise_suppress_filter_v2)
+01:43:06 AM.740:         - filter: 'Limiter' (limiter_filter)
+01:43:06 AM.740:         - filter: 'Gain' (gain_filter)
+01:43:06 AM.740:     - source: 'Screen Capture (XSHM)' (xshm_input)
+01:43:06 AM.740: ------------------------------------------------
+01:43:08 AM.246: adding 746 milliseconds of audio buffering, total audio buffering is now 746 milliseconds (source: Audio Capture Device (ALSA))
+01:43:08 AM.246: 

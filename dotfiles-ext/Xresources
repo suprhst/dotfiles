@@ -1,0 +1,84 @@
+*foreground:        #dee3e8
+*background:        #060D1C
+*.foreground:       #dee3e8
+*.background:       #060D1C
+emacs*foreground:   #dee3e8
+emacs*background:   #060D1C
+URxvt*foreground:   #dee3e8
+XTerm*foreground:   #dee3e8
+UXTerm*foreground:  #dee3e8
+URxvt*background:   [90]#060D1C
+XTerm*background:   #060D1C
+UXTerm*background:  #060D1C
+URxvt*cursorColor:  #dee3e8
+XTerm*cursorColor:  #dee3e8
+UXTerm*cursorColor: #dee3e8
+URxvt*borderColor:  [90]#060D1C
+
+! Colors 0-15.
+*.color0: #060D1C
+*color0:  #060D1C
+*.color1: #2698A3
+*color1:  #2698A3
+*.color2: #6A92A7
+*color2:  #6A92A7
+*.color3: #91A8B3
+*color3:  #91A8B3
+*.color4: #A5C2BA
+*color4:  #A5C2BA
+*.color5: #9CB5C8
+*color5:  #9CB5C8
+*.color6: #B4C9D6
+*color6:  #B4C9D6
+*.color7: #dee3e8
+*color7:  #dee3e8
+*.color8: #9b9ea2
+*color8:  #9b9ea2
+*.color9: #2698A3
+*color9:  #2698A3
+*.color10: #6A92A7
+*color10:  #6A92A7
+*.color11: #91A8B3
+*color11:  #91A8B3
+*.color12: #A5C2BA
+*color12:  #A5C2BA
+*.color13: #9CB5C8
+*color13:  #9CB5C8
+*.color14: #B4C9D6
+*color14:  #B4C9D6
+*.color15: #dee3e8
+*color15:  #dee3e8
+
+! Black color that will not be affected by bold highlighting.
+*.color66: #060D1C
+*color66:  #060D1C
+
+! Xclock colors.
+XClock*foreground: #dee3e8
+XClock*background: #060D1C
+XClock*majorColor:  rgba:de/e3/e8/ff
+XClock*minorColor:  rgba:de/e3/e8/ff
+XClock*hourColor:   rgba:de/e3/e8/ff
+XClock*minuteColor: rgba:de/e3/e8/ff
+XClock*secondColor: rgba:de/e3/e8/ff
+
+! Set depth to make transparency work.
+URxvt*depth: 32
+
+URxvt*scrollBar:         false
+URxvt*scrollBar_right:   false
+
+!URxvt*transparent:       false
+
+!URxvt*depth: 32
+!URxvt.background: [0]#232c31
+
+URxvt.font:xft:DejaVu Sans Mono:pixelsize=18:antialias=true:hinting=true
+URxvt.boldFont:xft:DejaVu Sans Mono:bold:pixelsize=18:antialias=true:hinting=true
+*antialias:  true
+*autohint:   false
+
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: firefox
+URxvt.matcher.button: 1
+
