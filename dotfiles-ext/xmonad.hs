@@ -13,6 +13,7 @@ import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
+
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
@@ -34,6 +35,7 @@ myBorderWidth   = 1
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
 -- ("right alt"), which does not conflict with emacs keybindings. The
 -- "windows key" is usually mod4Mask.
+
 --
 myModMask       = mod4Mask
 
@@ -127,9 +129,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
     -- Volume and brightness
-    ,((0, xF86XK_PowerDown),         spawn "sudo pm-suspend")
-    , ((0, xF86XK_AudioRaiseVolume),  spawn "amixer -D pulse sset Master 10%+")
-    , ((0, xF86XK_AudioLowerVolume),  spawn "amixer -D pulse sset Master 10%-")
+    , ((0, xF86XK_PowerDown),         spawn "sudo pm-suspend")
+    , ((0, xF86XK_AudioRaiseVolume),  spawn "amixer set Master 5%+")
+    , ((0, xF86XK_AudioLowerVolume),  spawn "amixer set Master 5%- ")
     , ((0, xF86XK_AudioMute),         spawn "amixer -D pulse sset Master toggle")
     , ((0, xF86XK_MonBrightnessUp),   spawn "brightnessctl set +10%")
     , ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl set 10%-")
